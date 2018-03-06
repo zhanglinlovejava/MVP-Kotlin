@@ -9,7 +9,7 @@ import io.reactivex.schedulers.Schedulers
  * Created by zhanglin on 2018/2/26.
  */
 class HomeModel {
-    fun requestHomeData(num: Int): Observable<HomeBean> {
+    fun requestHomeData(): Observable<HomeBean> {
         return RetrofitManager.service.getFirstHomeData(1).subscribeOn(Schedulers.io())
     }
 

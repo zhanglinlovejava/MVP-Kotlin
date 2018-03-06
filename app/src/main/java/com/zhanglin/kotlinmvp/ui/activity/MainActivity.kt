@@ -87,7 +87,7 @@ class MainActivity : BaseActivity() {
             3
             -> mMineFragment?.let {
                 transaction.show(it)
-            } ?: MineFragment.getInstance(mTitles[position]).let {
+            } ?: MineFragment.getInstance().let {
                 mMineFragment = it
                 transaction.add(R.id.fl_container, it, "mine")
             }

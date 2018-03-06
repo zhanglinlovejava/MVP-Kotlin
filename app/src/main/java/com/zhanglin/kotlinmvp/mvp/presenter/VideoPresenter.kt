@@ -33,7 +33,7 @@ class VideoPresenter : BasePresenter<VideoContract.View>(), VideoContract.Presen
                         showToast("本次消耗 ${dataFormat(it.urlList[0].size)}流量")
                     }
                 }
-            }else{
+            } else {
                 mRootView?.startPlay(itemData.data.playUrl)
             }
             updateVideoInfo(itemData)
@@ -43,16 +43,15 @@ class VideoPresenter : BasePresenter<VideoContract.View>(), VideoContract.Presen
 
     override fun getVideoDetailData(id: Long) {
         checkViewAttached()
-        mRootView?.showLoading()
-        var disposable = videoModel.getVideoDetailData(id).observeOn(AndroidSchedulers.mainThread())
-                .subscribe({ issue ->
-                    mRootView?.apply {
+        mRootView?.apply {
+            showLoading()
+            compositeDisposable.add(videoModel.getVideoDetailData(id).observeOn(AndroidSchedulers.mainThread())
+                    .subscribe({ issue ->
                         hideLoading()
                         setVideoDetailData(issue.itemList)
-                    }
-                }, { error ->
-                    Logger.e("请求出错了" + error.message.toString())
-                })
-        compositeDisposable.add(disposable)
+                    }, { error ->
+                        Logger.e("请求出错了" + error.message.toString())
+                    }))
+        }
     }
 }

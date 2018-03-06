@@ -48,7 +48,7 @@ class HomeFragment : BaseRecyclerFragment(), HomeContract.View, OnRefreshLoadmor
     }
 
     override fun lazyLoad() {
-        mPresenter.requestHomeData(1, false)
+        mPresenter.requestHomeData(false)
     }
 
     override fun showLoading() {
@@ -74,7 +74,7 @@ class HomeFragment : BaseRecyclerFragment(), HomeContract.View, OnRefreshLoadmor
     }
 
     override fun onRefresh(refreshlayout: RefreshLayout?) {
-        mPresenter.requestHomeData(1, true)
+        mPresenter.requestHomeData(true)
     }
 
     override fun onItemClick(view: View?, position: Int) {

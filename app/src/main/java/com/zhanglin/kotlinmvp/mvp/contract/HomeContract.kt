@@ -18,7 +18,7 @@ interface HomeContract {
 
     interface Presenter : IPresenter<View> {
 
-        fun requestHomeData(num: Int,isRefresh:Boolean)
+        fun requestHomeData(isRefresh: Boolean)
 
         fun loadMoreData()
     }

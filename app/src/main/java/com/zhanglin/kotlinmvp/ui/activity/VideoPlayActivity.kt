@@ -229,10 +229,6 @@ class VideoPlayActivity : BaseRecyclerActivity(), VideoContract.View, BaseAdapte
         mLayoutStatusView?.showContent()
     }
 
-    override fun showEmptyView() {
-        mLayoutStatusView?.showEmpty()
-    }
-
     override fun showNetErrView() {
         mLayoutStatusView?.showError()
     }

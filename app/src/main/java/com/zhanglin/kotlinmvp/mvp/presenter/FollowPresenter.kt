@@ -15,22 +15,22 @@ class FollowPresenter : BasePresenter<FollowContract.View>(), FollowContract.Pre
     }
 
     override fun getFollowData() {
-        mRootView?.showLoading()
-        compositeDisposable.add(followModel.getFollowData().observeOn(AndroidSchedulers.mainThread())
-                .subscribe({ issue ->
-                    mRootView?.apply {
+        mRootView?.apply {
+            showLoading()
+            compositeDisposable.add(followModel.getFollowData().observeOn(AndroidSchedulers.mainThread())
+                    .subscribe({ issue ->
                         hideLoading()
                         setFollowData(issue.itemList)
                         nextPageUrl = issue.nextPageUrl
-                    }
-                }, { error ->
-                    mRootView?.showNetErrView()
-                }))
+                    }, { error ->
+                        showNetErrView()
+                    }))
+        }
     }
 
     override fun getMoreIssue() {
-        var hasMore = nextPageUrl?.let {
-            mRootView?.apply {
+        mRootView?.apply {
+            var hasMore = nextPageUrl?.let {
                 compositeDisposable.add(followModel.getMoreIssue(nextPageUrl!!).observeOn(AndroidSchedulers.mainThread())
                         .subscribe({ issue ->
                             onLoadMoreComplete()
@@ -41,9 +41,9 @@ class FollowPresenter : BasePresenter<FollowContract.View>(), FollowContract.Pre
                             showToast(error.message.toString())
                         }))
             }
-        }
-        if (hasMore == null) {
-            mRootView?.noMoreData()
+            if (hasMore == null) {
+                mRootView?.noMoreData()
+            }
         }
 
     }

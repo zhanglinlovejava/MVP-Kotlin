@@ -42,6 +42,9 @@ class RankFragment : BaseRecyclerFragment(), RankContract.View, BaseAdapter.OnRe
 
     override fun hideLoading() {
         mLayoutStatusView?.showContent()
+        mLayoutStatusView.let {
+
+        }
     }
 
 
@@ -61,11 +64,11 @@ class RankFragment : BaseRecyclerFragment(), RankContract.View, BaseAdapter.OnRe
     }
 
     override fun onRefresh(refreshlayout: RefreshLayout?) {
-       mPresenter.getRankList(url!!,true)
+        mPresenter.getRankList(url!!, true)
     }
 
     override fun lazyLoad() {
-        mPresenter.getRankList(url!!,false)
+        mPresenter.getRankList(url!!, false)
     }
 
     override fun onDestroyView() {

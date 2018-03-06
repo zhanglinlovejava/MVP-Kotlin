@@ -15,15 +15,13 @@ class HomePresenter : BasePresenter<HomeContract.View>(), HomeContract.Presenter
         HomeModel()
     }
     private var nextPageUrl: String? = null
-    override fun requestHomeData(num: Int, isRefresh: Boolean) {
-        //检测是否绑定 view
+    override fun requestHomeData(isRefresh: Boolean) {
         checkViewAttached()
-        if (!isRefresh)
-            mRootView?.showLoading()
-
-        var disposed = homeModel.requestHomeData(num).observeOn(AndroidSchedulers.mainThread())
-                .subscribe({ homeBean ->
-                    mRootView?.apply {
+        mRootView?.apply {
+            if (!isRefresh)
+                showLoading()
+            compositeDisposable.add(homeModel.requestHomeData().observeOn(AndroidSchedulers.mainThread())
+                    .subscribe({ homeBean ->
                         onRefreshCompleted()
                         showRecycleContent()
                         nextPageUrl = homeBean.nextPageUrl
@@ -33,17 +31,13 @@ class HomePresenter : BasePresenter<HomeContract.View>(), HomeContract.Presenter
                             homeBean.issueList[0].itemList.remove(item)
                         })
                         setHomeData(homeBean)
-                    }
-                }, { error ->
-                    mRootView?.apply {
+                    }, { error ->
                         onRefreshCompleted()
                         if (!isRefresh)
                             showNetErrView()
                         Logger.e("请求失败了 " + error.toString())
-                    }
-                })
-        compositeDisposable.add(disposed)
-
+                    }))
+        }
     }
 
     override fun loadMoreData() {
