@@ -31,9 +31,6 @@ class MainActivity : BaseActivity() {
             mIndex = savedInstanceState.getInt("currTabIndex")
         }
         super.onCreate(savedInstanceState)
-        initTab()
-        tab_layout.currentTab = mIndex
-        switchFragment(mIndex)
     }
 
     private fun initTab() {
@@ -52,11 +49,12 @@ class MainActivity : BaseActivity() {
         })
     }
 
-    override fun layoutId(): Int {
-        return R.layout.activity_main
-    }
+    override fun layoutId(): Int = R.layout.activity_main
 
     override fun initView() {
+        initTab()
+        tab_layout.currentTab = mIndex
+        switchFragment(mIndex)
     }
 
     private fun switchFragment(position: Int) {

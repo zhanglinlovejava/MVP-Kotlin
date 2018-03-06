@@ -45,7 +45,6 @@ class HomePresenter : BasePresenter<HomeContract.View>(), HomeContract.Presenter
             homeModel.loadMoreHomeData(nextPageUrl!!).observeOn(AndroidSchedulers.mainThread())
                     .subscribe({ homeBean ->
                         mRootView?.apply {
-                            onLoadMoreComplete()
                             nextPageUrl = homeBean.nextPageUrl
                             homeBean.issueList[0].itemList.filter { item ->
                                 item.type != "video"
@@ -56,7 +55,6 @@ class HomePresenter : BasePresenter<HomeContract.View>(), HomeContract.Presenter
                         }
                     }, { error ->
                         mRootView?.apply {
-                            noMoreData()
                             Logger.e("请求失败了 " + error.toString())
                         }
 

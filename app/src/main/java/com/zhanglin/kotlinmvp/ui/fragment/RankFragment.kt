@@ -9,7 +9,7 @@ import com.zhanglin.kotlinmvp.R
 import com.zhanglin.kotlinmvp.base.BaseAdapter
 import com.zhanglin.kotlinmvp.base.BaseRecyclerFragment
 import com.zhanglin.kotlinmvp.mvp.contract.RankContract
-import com.zhanglin.kotlinmvp.mvp.model.bean.HomeBean
+import com.zhanglin.kotlinmvp.mvp.model.bean.HomeEntity
 import com.zhanglin.kotlinmvp.mvp.presenter.RankPresenter
 import com.zhanglin.kotlinmvp.ui.adapter.CategoryDetailAdapter
 import com.zhanglin.kotlinmvp.utils.actionVideoLaunch
@@ -76,7 +76,7 @@ class RankFragment : BaseRecyclerFragment(), RankContract.View, BaseAdapter.OnRe
         mPresenter.detachView()
     }
 
-    override fun setRankListData(list: ArrayList<HomeBean.Issue.Item>) {
+    override fun setRankListData(list: ArrayList<HomeEntity.Issue.Item>) {
         mAdapter?.setNewData(list)
     }
 

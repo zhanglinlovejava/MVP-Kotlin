@@ -6,13 +6,13 @@ import android.view.ViewGroup
 import com.zhanglin.kotlinmvp.R
 import com.zhanglin.kotlinmvp.base.BaseAdapter
 import com.zhanglin.kotlinmvp.base.BaseViewHolder
-import com.zhanglin.kotlinmvp.mvp.model.bean.HomeBean
+import com.zhanglin.kotlinmvp.mvp.model.bean.HomeEntity
 import com.zhanglin.kotlinmvp.utils.durationFormat
 
 /**
  * Created by zhanglin on 2018/2/28.
  */
-class VideoAdapter : BaseAdapter<HomeBean.Issue.Item> {
+class VideoAdapter : BaseAdapter<HomeEntity.Issue.Item> {
 
     companion object {
         val TYPE_DETAIL = 0
@@ -54,7 +54,7 @@ class VideoAdapter : BaseAdapter<HomeBean.Issue.Item> {
         return super.onCreateDefViewHolder(parent, viewType)
     }
 
-    override fun convert(helper: BaseViewHolder?, item: HomeBean.Issue.Item?) {
+    override fun convert(helper: BaseViewHolder?, item: HomeEntity.Issue.Item?) {
         with(helper!!) {
             when (itemViewType) {
                 TYPE_DETAIL -> {

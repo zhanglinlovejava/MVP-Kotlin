@@ -9,7 +9,7 @@ import android.support.v4.app.ActivityOptionsCompat
 import android.support.v4.util.Pair
 import android.view.View
 import com.zhanglin.kotlinmvp.R
-import com.zhanglin.kotlinmvp.mvp.model.bean.HomeBean
+import com.zhanglin.kotlinmvp.mvp.model.bean.HomeEntity
 import com.zhanglin.kotlinmvp.ui.activity.VideoPlayActivity
 
 /**
@@ -49,7 +49,7 @@ fun dataFormat(total: Long): String {
     return result
 }
 
-fun actionVideoLaunch(activity: Activity, item: HomeBean.Issue.Item, view: View) {
+fun actionVideoLaunch(activity: Activity, item: HomeEntity.Issue.Item, view: View) {
     val intent = Intent(activity, VideoPlayActivity::class.java)
     intent.putExtra("itemData", item)
     if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {

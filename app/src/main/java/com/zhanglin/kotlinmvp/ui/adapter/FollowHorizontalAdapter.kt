@@ -5,16 +5,16 @@ import android.content.Context
 import com.zhanglin.kotlinmvp.R
 import com.zhanglin.kotlinmvp.base.BaseAdapter
 import com.zhanglin.kotlinmvp.base.BaseViewHolder
-import com.zhanglin.kotlinmvp.mvp.model.bean.HomeBean
+import com.zhanglin.kotlinmvp.mvp.model.bean.HomeEntity
 import com.zhanglin.kotlinmvp.utils.actionVideoLaunch
 import com.zhanglin.kotlinmvp.utils.durationFormat
 
 /**
  * Created by zhanglin on 2018/3/1.
  */
-class FollowHorizontalAdapter(context: Context, itemList: ArrayList<HomeBean.Issue.Item>) : BaseAdapter<HomeBean.Issue.Item>(context, R.layout.item_follow_horizontal, itemList) {
+class FollowHorizontalAdapter(context: Context, itemList: ArrayList<HomeEntity.Issue.Item>) : BaseAdapter<HomeEntity.Issue.Item>(context, R.layout.item_follow_horizontal, itemList) {
 
-    override fun convert(helper: BaseViewHolder?, item: HomeBean.Issue.Item?) {
+    override fun convert(helper: BaseViewHolder?, item: HomeEntity.Issue.Item?) {
         with(helper!!) {
             setImageUrl(R.id.iv_cover_feed, item?.data?.cover?.feed)
             setText(R.id.tv_title, item?.data?.title)

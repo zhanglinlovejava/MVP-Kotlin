@@ -8,7 +8,7 @@ import com.zhanglin.kotlinmvp.R
 import com.zhanglin.kotlinmvp.base.BaseAdapter
 import com.zhanglin.kotlinmvp.base.BaseFragment
 import com.zhanglin.kotlinmvp.mvp.contract.CategoryContract
-import com.zhanglin.kotlinmvp.mvp.model.bean.CategoryBean
+import com.zhanglin.kotlinmvp.mvp.model.bean.CategoryEntity
 import com.zhanglin.kotlinmvp.mvp.presenter.CategoryPresenter
 import com.zhanglin.kotlinmvp.ui.activity.CategaryDetailActivity
 import com.zhanglin.kotlinmvp.ui.adapter.CategoryAdapter
@@ -67,7 +67,7 @@ class CategoryFragment : BaseFragment(), CategoryContract.View, BaseAdapter.OnRe
         mPresenter.getCategoryData()
     }
 
-    override fun setCategoryData(list: ArrayList<CategoryBean>) {
+    override fun setCategoryData(list: ArrayList<CategoryEntity>) {
         mAdapter?.setNewData(list)
     }
 

@@ -6,7 +6,7 @@ import com.scwang.smartrefresh.layout.listener.OnLoadmoreListener
 import com.zhanglin.kotlinmvp.R
 import com.zhanglin.kotlinmvp.base.BaseRecyclerFragment
 import com.zhanglin.kotlinmvp.mvp.contract.FollowContract
-import com.zhanglin.kotlinmvp.mvp.model.bean.HomeBean
+import com.zhanglin.kotlinmvp.mvp.model.bean.HomeEntity
 import com.zhanglin.kotlinmvp.mvp.presenter.FollowPresenter
 import com.zhanglin.kotlinmvp.ui.adapter.FollowAdapter
 import kotlinx.android.synthetic.main.frag_follow.*
@@ -59,7 +59,7 @@ class FollowFragment : BaseRecyclerFragment(), FollowContract.View, OnLoadmoreLi
         mPresenter.getFollowData()
     }
 
-    override fun setFollowData(list: ArrayList<HomeBean.Issue.Item>) {
+    override fun setFollowData(list: ArrayList<HomeEntity.Issue.Item>) {
         mAdapter?.setNewData(list)
     }
 
@@ -68,7 +68,7 @@ class FollowFragment : BaseRecyclerFragment(), FollowContract.View, OnLoadmoreLi
         super.onDestroyView()
     }
 
-    override fun setMoreIssue(list: ArrayList<HomeBean.Issue.Item>) {
+    override fun setMoreIssue(list: ArrayList<HomeEntity.Issue.Item>) {
         mAdapter?.addData(list)
     }
 

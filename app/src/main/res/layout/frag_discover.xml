@@ -38,7 +38,7 @@
         android:layout_height="0.5dp"
         android:background="@color/color_light_black" />
 
-    <com.classic.common.MultipleStatusView xmlns:android="http://schemas.android.com/apk/res/android"
+    <com.classic.common.MultipleStatusView  
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/multipleStatusViewHot"
         android:layout_width="match_parent"

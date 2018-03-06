@@ -5,7 +5,7 @@ import com.zhanglin.kotlinmvp.KotlinApplication
 import com.zhanglin.kotlinmvp.base.BasePresenter
 import com.zhanglin.kotlinmvp.mvp.contract.VideoContract
 import com.zhanglin.kotlinmvp.mvp.model.VideoModel
-import com.zhanglin.kotlinmvp.mvp.model.bean.HomeBean
+import com.zhanglin.kotlinmvp.mvp.model.bean.HomeEntity
 import com.zhanglin.kotlinmvp.utils.Logger
 import com.zhanglin.kotlinmvp.utils.dataFormat
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -18,7 +18,7 @@ class VideoPresenter : BasePresenter<VideoContract.View>(), VideoContract.Presen
         VideoModel()
     }
 
-    override fun parsePlayData(itemData: HomeBean.Issue.Item) {
+    override fun parsePlayData(itemData: HomeEntity.Issue.Item) {
         mRootView?.apply {
             val playInfo = itemData.data?.playInfo
             val is4G = NetworkUtils.is4G(KotlinApplication.context)

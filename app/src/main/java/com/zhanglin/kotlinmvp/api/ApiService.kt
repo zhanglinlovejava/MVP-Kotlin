@@ -1,8 +1,8 @@
 package com.zhanglin.kotlinmvp.api
 
-import com.zhanglin.kotlinmvp.mvp.model.bean.CategoryBean
-import com.zhanglin.kotlinmvp.mvp.model.bean.HomeBean
-import com.zhanglin.kotlinmvp.mvp.model.bean.RankTabBean
+import com.zhanglin.kotlinmvp.mvp.model.bean.CategoryEntity
+import com.zhanglin.kotlinmvp.mvp.model.bean.HomeEntity
+import com.zhanglin.kotlinmvp.mvp.model.bean.RankTabEntity
 import io.reactivex.Observable
 import retrofit2.http.GET
 import retrofit2.http.Query
@@ -17,26 +17,26 @@ interface ApiService {
      *
      */
     @GET("v2/feed?")
-    fun getFirstHomeData(@Query("num") num: Int): Observable<HomeBean>
+    fun getFirstHomeData(@Query("num") num: Int): Observable<HomeEntity>
 
     @GET
-    fun getMoreHomeData(@Url url: String): Observable<HomeBean>
+    fun getMoreHomeData(@Url url: String): Observable<HomeEntity>
 
     @GET("v4/video/related?")
-    fun getRelatedData(@Query("id") id: Long): Observable<HomeBean.Issue>
+    fun getRelatedData(@Query("id") id: Long): Observable<HomeEntity.Issue>
 
     @GET("v4/tabs/follow")
-    fun getFollowData(): Observable<HomeBean.Issue>
+    fun getFollowData(): Observable<HomeEntity.Issue>
 
     @GET
-    fun getMoreIssue(@Url url: String): Observable<HomeBean.Issue>
+    fun getMoreIssue(@Url url: String): Observable<HomeEntity.Issue>
 
     @GET("v4/categories")
-    fun getCategoryData(): Observable<ArrayList<CategoryBean>>
+    fun getCategoryData(): Observable<ArrayList<CategoryEntity>>
 
     @GET("v4/categories/videoList")
-    fun getCategoryDetail(@Query("id") id: Long): Observable<HomeBean.Issue>
+    fun getCategoryDetail(@Query("id") id: Long): Observable<HomeEntity.Issue>
 
     @GET("v4/rankList")
-    fun getRankTabList(): Observable<RankTabBean>
+    fun getRankTabList(): Observable<RankTabEntity>
 }

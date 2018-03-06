@@ -25,6 +25,7 @@
             android:name=".ui.activity.VideoPlayActivity"
             android:configChanges="orientation|keyboardHidden|screenSize" />
         <activity android:name=".ui.activity.CategaryDetailActivity" />
+        <activity android:name=".ui.activity.SearchActivity" />
     </application>
 
 

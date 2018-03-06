@@ -6,14 +6,14 @@ import android.support.v7.widget.RecyclerView
 import com.zhanglin.kotlinmvp.R
 import com.zhanglin.kotlinmvp.base.BaseAdapter
 import com.zhanglin.kotlinmvp.base.BaseViewHolder
-import com.zhanglin.kotlinmvp.mvp.model.bean.HomeBean
+import com.zhanglin.kotlinmvp.mvp.model.bean.HomeEntity
 
 /**
  * Created by zhanglin on 2018/3/1.
  */
-class FollowAdapter(context: Context?) : BaseAdapter<HomeBean.Issue.Item>(context, R.layout.item_follow, ArrayList()) {
+class FollowAdapter(context: Context?) : BaseAdapter<HomeEntity.Issue.Item>(context, R.layout.item_follow, ArrayList()) {
 
-    override fun convert(helper: BaseViewHolder?, item: HomeBean.Issue.Item?) {
+    override fun convert(helper: BaseViewHolder?, item: HomeEntity.Issue.Item?) {
         with(helper!!){
             var header = item?.data?.header
             setText(R.id.tv_title,header?.title)

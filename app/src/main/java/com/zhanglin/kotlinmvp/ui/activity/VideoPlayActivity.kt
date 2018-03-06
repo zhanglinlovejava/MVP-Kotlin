@@ -18,7 +18,7 @@ import com.zhanglin.kotlinmvp.`interface`.VideoListener
 import com.zhanglin.kotlinmvp.base.BaseAdapter
 import com.zhanglin.kotlinmvp.base.BaseRecyclerActivity
 import com.zhanglin.kotlinmvp.mvp.contract.VideoContract
-import com.zhanglin.kotlinmvp.mvp.model.bean.HomeBean
+import com.zhanglin.kotlinmvp.mvp.model.bean.HomeEntity
 import com.zhanglin.kotlinmvp.mvp.presenter.VideoPresenter
 import com.zhanglin.kotlinmvp.ui.adapter.VideoAdapter
 import com.zhanglin.kotlinmvp.utils.DisplayManager
@@ -34,7 +34,7 @@ class VideoPlayActivity : BaseRecyclerActivity(), VideoContract.View, BaseAdapte
         val IMG_TRANSITION = "IMG_TRANSITION"
     }
 
-    private var itemData: HomeBean.Issue.Item? = null
+    private var itemData: HomeEntity.Issue.Item? = null
     private var orientationUtils: OrientationUtils? = null
     private var isPlay: Boolean = false
     private var isPause: Boolean = false
@@ -51,7 +51,7 @@ class VideoPlayActivity : BaseRecyclerActivity(), VideoContract.View, BaseAdapte
     override fun initView() {
         mPresenter.attachView(this)
         mLayoutStatusView = multipleStatusViewVideo
-        itemData = intent.getSerializableExtra("itemData") as HomeBean.Issue.Item?
+        itemData = intent.getSerializableExtra("itemData") as HomeEntity.Issue.Item?
         initTransition()
         initVideoViewConfig()
         mAdapter = VideoAdapter(mContext)
@@ -124,7 +124,7 @@ class VideoPlayActivity : BaseRecyclerActivity(), VideoContract.View, BaseAdapte
         })
     }
 
-    override fun updateVideoInfo(itemInfo: HomeBean.Issue.Item) {
+    override fun updateVideoInfo(itemInfo: HomeEntity.Issue.Item) {
         itemData = itemInfo
         mAdapter?.clearData()
         mAdapter?.add(0, itemInfo!!)
@@ -216,7 +216,7 @@ class VideoPlayActivity : BaseRecyclerActivity(), VideoContract.View, BaseAdapte
         }
     }
 
-    override fun setVideoDetailData(itemList: ArrayList<HomeBean.Issue.Item>) {
+    override fun setVideoDetailData(itemList: ArrayList<HomeEntity.Issue.Item>) {
         mAdapter?.addData(itemList)
         recyclerView.scrollToPosition(0)
     }

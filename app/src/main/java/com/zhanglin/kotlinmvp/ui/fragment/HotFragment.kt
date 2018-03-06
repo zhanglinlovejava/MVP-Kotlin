@@ -3,7 +3,7 @@ package com.zhanglin.kotlinmvp.ui.fragment
 import com.zhanglin.kotlinmvp.R
 import com.zhanglin.kotlinmvp.base.BaseFragment
 import com.zhanglin.kotlinmvp.mvp.contract.HotContract
-import com.zhanglin.kotlinmvp.mvp.model.bean.RankTabBean
+import com.zhanglin.kotlinmvp.mvp.model.bean.RankTabEntity
 import com.zhanglin.kotlinmvp.mvp.presenter.HotPresenter
 import com.zhanglin.kotlinmvp.ui.adapter.MainAdapter
 import com.zhanglin.kotlinmvp.utils.StatusBarUtil
@@ -55,7 +55,7 @@ class HotFragment : BaseFragment(), HotContract.View {
         mLayoutStatusView?.showContent()
     }
 
-    override fun setRandTabData(tabInfo: RankTabBean.TabInfo) {
+    override fun setRandTabData(tabInfo: RankTabEntity.TabInfo) {
         for (tab in tabInfo.tabList) {
             tabList.add(tab.name)
             fragments.add(RankFragment.getInstance(tab.apiUrl))

@@ -5,7 +5,7 @@ import java.io.Serializable
 /**
  * Created by zhanglin on 2018/2/26.
  */
-data class HomeBean(val issueList: ArrayList<Issue>, val nextPageUrl: String, val nextPublishTime: Long, val newestIssueType: String, val dialog: Any) {
+data class HomeEntity(val issueList: ArrayList<Issue>, val nextPageUrl: String, val nextPublishTime: Long, val newestIssueType: String, val dialog: Any) {
 
     data class Issue(val releaseTime: Long, val type: String, val date: Long, val total: Int, val publishTime: Long, val itemList: ArrayList<Item>, var count: Int, val nextPageUrl: String) {
 
@@ -58,7 +58,7 @@ data class HomeBean(val issueList: ArrayList<Issue>, val nextPageUrl: String, va
                             val lastViewTime: Any,
                             val playlists: Any,
                             val header: Header,
-                            val itemList: ArrayList<HomeBean.Issue.Item>
+                            val itemList: ArrayList<HomeEntity.Issue.Item>
             ) : Serializable {
                 data class Tag(val id: Int, val name: String, val actionUrl: String, val adTrack: Any) : Serializable
 
@@ -92,7 +92,7 @@ data class HomeBean(val issueList: ArrayList<Issue>, val nextPageUrl: String, va
     }
 
     override fun toString(): String {
-        return "HomeBean(issueList=$issueList, nextPageUrl='$nextPageUrl', nextPublishTime=$nextPublishTime, newestIssueType='$newestIssueType', dialog=$dialog)"
+        return "HomeEntity(issueList=$issueList, nextPageUrl='$nextPageUrl', nextPublishTime=$nextPublishTime, newestIssueType='$newestIssueType', dialog=$dialog)"
     }
 
 
